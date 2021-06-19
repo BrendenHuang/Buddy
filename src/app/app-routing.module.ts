@@ -17,7 +17,33 @@ const routes: Routes = [
   {
     path: 'activity-details',
     loadChildren: () => import('./activity-details/activity-details.module').then( m => m.ActivityDetailsPageModule)
+  },
+  {
+    path: 'chestworkouts',
+    loadChildren: () => import('./chestworkouts/chestworkouts.module').then( m => m.ChestworkoutsPageModule)
+  },
+  
+  {
+    path: 'absworkouts',
+    loadChildren: () => import('./absworkouts/absworkouts.module').then( m => m.AbsworkoutsPageModule)
+  },  {
+    path: 'legworkouts',
+    loadChildren: () => import('./legworkouts/legworkouts.module').then( m => m.LegworkoutsPageModule)
+  },
+  {
+    path: 'armsworkouts',
+    loadChildren: () => import('./armsworkouts/armsworkouts.module').then( m => m.ArmsworkoutsPageModule)
+  },
+  {
+    path: 'shoulderworkouts',
+    loadChildren: () => import('./shoulderworkouts/shoulderworkouts.module').then( m => m.ShoulderworkoutsPageModule)
+  },
+  {
+    path: 'backworkouts',
+    loadChildren: () => import('./backworkouts/backworkouts.module').then( m => m.BackworkoutsPageModule)
   }
+
+
 ];
 @NgModule({
   imports: [
