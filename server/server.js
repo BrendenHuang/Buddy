@@ -25,6 +25,11 @@ const corsOptions = {
     }
     }
     app.options('*', cors(corsOptions));
+
+    app.get('/', cors(corsOptions), (req, res, next) => {
+        res.json({ message: 'This route is CORS-enabled for an allowed origin.' });
+        })
+
     const db = mysql.createPool({
     connectionLimit: 100,
     host: '182.50.133.92',
