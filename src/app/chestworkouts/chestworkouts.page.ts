@@ -19,7 +19,7 @@ export class ChestworkoutsPage{
   }
 
   async getChest(){
-    var url = 'https://itj-buddy.herokuapp.com/getListItem';
+    var url = 'https://itj-buddy.herokuapp.com/getChest';
     this.http.get(url).subscribe(data => {
     this.workouta=data
   })
