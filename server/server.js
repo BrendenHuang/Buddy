@@ -73,7 +73,7 @@ app.route('/getChest', cors(corsOptions)).get(function (request, response) {
 
 //yensing
 app.route('/tab3', cor(corsOptions)).get(function (request, response){
-    db.query('Select * from Team2.UserAccount;', function(error,result,field){
+    db.query('Select username from Team2.UserAccount;', function(error,result,field){
         if(error){
             console.log('Error message: ',error)
             throw error;

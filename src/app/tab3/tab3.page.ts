@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UsersService } from '../shared/services/users.service';
 
@@ -16,6 +16,9 @@ export class Tab3Page {
 
   users: any = [];
   constructor(private http: HttpClient, private usersService: UsersService) {
+    this.searchBuddy = new FormGroup({
+      age: new FormControl('')
+    })
   }
 
   ngOnInit(){
