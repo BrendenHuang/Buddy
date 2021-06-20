@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,23 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './chestworkouts.page.html',
   styleUrls: ['./chestworkouts.page.scss'],
 })
-export class ChestworkoutsPage implements OnInit {
+export class ChestworkoutsPage{
 
-  constructor() { }
+  workouta: any = [];
+
+  constructor(public http: HttpClient,) {
+    
+   }
 
   ngOnInit() {
+    this.getChest();
   }
+
+  async getChest(){
+    var url = 'https://itj-buddy.herokuapp.com/getListItem';
+    this.http.get(url).subscribe(data => {
+    this.workouta=data
+  })
+}
 
 }
