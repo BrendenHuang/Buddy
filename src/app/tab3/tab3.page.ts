@@ -26,10 +26,12 @@ export class Tab3Page {
   }
 
   async getUsers(){
-    var url = 'https://itj-buddy.herokuapp.com/tab3';
+    var url = 'https://itj-buddy.herokuapp.com/';
     this.http.get(url).subscribe(data => {
     this.users=data
   })
+
+  console.log('Message: ' + this.users)
 }
 
 }

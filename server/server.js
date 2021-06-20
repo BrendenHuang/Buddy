@@ -44,7 +44,7 @@ const corsOptions = {
     throw err1;
     }
     console.log('Mysql connected....')
-    db.query('select * from Team2.UserAccount;', function (err2, result, field) {
+    db.query('select username from Team2.UserAccount;', function (err2, result, field) {
     if (!err2) {
     console.log(result);
     }
@@ -73,6 +73,7 @@ app.route('/getChest', cors(corsOptions)).get(function (request, response) {
 
 //yensing
 app.route('/tab3', cor(corsOptions)).get(function (request, response){
+    console.log("Testing")
     db.query('Select username from Team2.UserAccount;', function(error,result,field){
         if(error){
             console.log('Error message: ',error)
