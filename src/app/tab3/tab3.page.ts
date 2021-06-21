@@ -19,6 +19,8 @@ export class Tab3Page {
     this.searchBuddy = new FormGroup({
       age: new FormControl('')
     })
+
+    this.users = this.usersService.getUsers();
   }
 
   ngOnInit(){
@@ -26,7 +28,7 @@ export class Tab3Page {
   }
 
   async getUsers(){
-    var url = 'https://itj-buddy.herokuapp.com/';
+    var url = 'https://itj-buddy.herokuapp.com/getUser';
     this.http.get(url).subscribe(data => {
     this.users=data
   })

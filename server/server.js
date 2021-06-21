@@ -72,13 +72,14 @@ app.route('/getChest', cors(corsOptions)).get(function (request, response) {
 })
 
 //yensing
-app.route('/tab3', cor(corsOptions)).get(function (request, response){
+app.route('/getUser', cor(corsOptions)).get(function (request, response){
     console.log("Testing")
     db.query('Select username from Team2.UserAccount;', function(error,result,field){
         if(error){
             console.log('Error message: ',error)
             throw error;
         };
+        var username = result;
         console.log(result)
         response.send(result);
     })
