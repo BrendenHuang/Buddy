@@ -18,6 +18,7 @@ export class ChestworkoutsPage{
     this.getChest();
   }
 
+  
   async getChest(){
     var url = 'https://itj-buddy.herokuapp.com/getChest';
     this.http.get(url).subscribe(data => {
