@@ -27,17 +27,30 @@ const corsOptions = {
     }
     app.options('*', cors(corsOptions));
 
-    app.get('/', cors(corsOptions), (req, res, next) => {
-        res.json({ message: 'This route is CORS-enabled for an allowed origin.' });
-        })
-
     const db = mysql.createPool({
-    connectionLimit: 100,
-    host: '182.50.133.92',
-    user: 'team2',
-    password: 'team2pwd',
-    database: 'Team2'
-    });
+        connectionLimit: 100,
+        host: '182.50.133.92',
+        user: 'team2',
+        password: 'team2pwd',
+        database: 'Team2'
+        });
+        
+    //yensing
+app.route('/getUser', cor(corsOptions)).get(function (request, response){
+    console.log("Testing")
+    db.query('Select username from Team2.UserAccount;', function(error,result,field){
+        if(error){
+            console.log('Error message: ',error)
+            throw error;
+        };
+        var username = result;
+        console.log(result)
+        response.send(result);
+    })
+})
+
+ 
+
     db.getConnection((err1) => {
     console.log('Connecting mySQL....')
     if (err1) {
@@ -59,28 +72,4 @@ const corsOptions = {
     console.log("listening to Port", app.get("port"));
 });
 
-app.route('/getChest', cors(corsOptions)).get(function (request, response) {
-    db.query('SELECT * FROM FitnessList ;', function (error, result, fields) {
-        if (error) {
-            console.log('Error message: ', error);
-            throw error;
-        };
-        console.log(result)
-        response.send(result);
-    //sent all item details
-    })
-})
 
-//yensing
-app.route('/getUser', cor(corsOptions)).get(function (request, response){
-    console.log("Testing")
-    db.query('Select username from Team2.UserAccount;', function(error,result,field){
-        if(error){
-            console.log('Error message: ',error)
-            throw error;
-        };
-        var username = result;
-        console.log(result)
-        response.send(result);
-    })
-})
