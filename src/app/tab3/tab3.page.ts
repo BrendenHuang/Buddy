@@ -20,7 +20,6 @@ export class Tab3Page {
       age: new FormControl('')
     })
 
-    this.users = this.usersService.getUsers();
   }
 
   ngOnInit(){
