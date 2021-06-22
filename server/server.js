@@ -36,7 +36,7 @@ const corsOptions = {
         });
 
     //yensing
-app.route('/getUser', cor(corsOptions))
+app.route('/getUser', cors(corsOptions))
     .get(function (request, response){
     
     db.query('Select * from Team2.UserAccount;', function(error,result,field){
