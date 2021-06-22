@@ -14,16 +14,7 @@ export class ChestworkoutsPage{
     
    }
 
-  ngOnInit() {
-    this.getChest();
-  }
-
-  
-  async getChest(){
-    var url = 'https://itj-buddy.herokuapp.com/getChest';
-    this.http.get(url).subscribe(data => {
-    this.workouta=data
-  })
-}
 
 }
+
+
