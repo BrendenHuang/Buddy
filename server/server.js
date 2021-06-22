@@ -4,7 +4,6 @@ const app = express();
 var bodyParser = require('body-parser');
 var methodOvereide = require('method-override');
 var cors = require('cors');
-//const { response } = require('express');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(methodOvereide());
@@ -36,18 +35,18 @@ const corsOptions = {
         });
 
     //yensing
-app.route('/getUser', cors(corsOptions))
-    .get(function (request, response){
-    
-    db.query('Select * from Team2.UserAccount;', function(error,result,field){
-        if(error){
-            console.log('Error message: ',error)
-            throw error;
-        };
-        console.log(result)
-        response.send(result);
-    })
-})
+ app.route('/getUser', cors(corsOptions))
+        .get(function (request, response) {
+            db.query('SELECT * FROM Team2.UserAccount;', function (error, result, fields) {
+                if (error) {
+                    console.log('Error message: ', error);
+                    throw error;
+                };
+                console.log(result)
+                response.send(result);
+        //sent all item details
+            })
+        })
 
 
     db.getConnection((err1) => {

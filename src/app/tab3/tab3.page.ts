@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UsersService } from '../shared/services/users.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
